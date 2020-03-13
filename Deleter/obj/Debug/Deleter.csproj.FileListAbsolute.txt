@@ -1,0 +1,6 @@
+c:\users\bartlomiej.marcysiak\onedrive\documents\Deleter\Deleter\bin\Debug\Deleter.exe.config
+c:\users\bartlomiej.marcysiak\onedrive\documents\Deleter\Deleter\bin\Debug\Deleter.exe
+c:\users\bartlomiej.marcysiak\onedrive\documents\Deleter\Deleter\bin\Debug\Deleter.pdb
+c:\users\bartlomiej.marcysiak\onedrive\documents\Deleter\Deleter\obj\Debug\Deleter.csprojResolveAssemblyReference.cache
+c:\users\bartlomiej.marcysiak\onedrive\documents\Deleter\Deleter\obj\Debug\Deleter.exe
+c:\users\bartlomiej.marcysiak\onedrive\documents\Deleter\Deleter\obj\Debug\Deleter.pdb
