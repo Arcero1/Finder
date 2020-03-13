@@ -1,0 +1,8 @@
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\obj\Debug\Finder.csprojResolveAssemblyReference.cache
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\bin\Debug\Finder.dll.config
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\bin\Debug\Finder.dll
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\bin\Debug\Finder.pdb
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\bin\Debug\CommonClasses.dll
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\bin\Debug\CommonClasses.pdb
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\obj\Debug\Finder.dll
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\obj\Debug\Finder.pdb

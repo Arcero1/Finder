@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Deleter
+namespace NFinder
 {
-    enum Findable
+    public enum Findable
     {
         Brace_Open,
         Brace_Close,

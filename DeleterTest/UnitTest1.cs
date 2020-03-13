@@ -1,5 +1,6 @@
 ﻿using System;
-using Deleter;
+using NFinder;
+using NCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DeleterTest

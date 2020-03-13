@@ -1,0 +1,12 @@
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\obj\Debug\XTest.csprojResolveAssemblyReference.cache
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\obj\Debug\DeleterTest.dll
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\obj\Debug\DeleterTest.pdb
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\DeleterTest.dll
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\DeleterTest.pdb
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\CommonClasses.dll
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\Deleter.exe
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\Finder.dll
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\CommonClasses.pdb
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\Deleter.pdb
+C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\Finder.pdb

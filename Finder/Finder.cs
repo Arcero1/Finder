@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
-namespace Deleter
+using NCommon;
+
+namespace NFinder
 {
     public class Finder
     {
@@ -39,6 +38,32 @@ namespace Deleter
         public List<FinderOutputElement> FindAll(char term)
         {
             return FindAll(term.ToString());
+        }
+
+        public List<FinderOutputFindable> FindAll(Findable findable)
+        {
+            List<FinderOutputFindable> results = new List<FinderOutputFindable>();
+
+            int lineIndex = 0;
+            File.ReadLines(fileName).ToList().ForEach(line =>
+            {
+                int lineCommentIndex = ignoreComments && line.Contains("//") ? line.IndexOf("//") : -1;
+
+                int cursor = 0;
+                string l = line;
+                while (l.Contains(FindableStrings.Get(findable)))
+                {
+                    cursor += l.IndexOf(FindableStrings.Get(findable));
+                    if (lineCommentIndex != -1 && lineCommentIndex < cursor) break;
+                    results.Add(new FinderOutputFindable(findable, new Position(lineIndex, cursor)));
+                    cursor++;
+                    l = line.Substring(cursor);
+                }
+
+                lineIndex++;
+            });
+
+            return results;
         }
 
         public List<FinderOutputElement> FindAll(string term)

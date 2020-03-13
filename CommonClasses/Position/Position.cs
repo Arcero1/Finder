@@ -1,93 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Deleter
+namespace NCommon
 {
-    public class Column
-    {
-        private int column;
-        private bool isValid;
-
-        public Column()
-        {
-            this.column = 0;
-            this.isValid = true;
-        }
-
-        public Column(int column)
-        {
-            this.column = column;
-            this.isValid = true;
-        }
-
-        public Column(bool isValid)
-        {
-            this.column = 0;
-            this.isValid = isValid;
-        }
-
-        public int Get()
-        {
-            return column;
-        }
-
-        public void Set(int column)
-        {
-            this.column = column;
-        }
-
-        public bool IsValid()
-        {
-            return isValid ? column >= 0 : isValid;
-        }
-
-        public Column Next()
-        {
-            return this + 1;
-        }
-
-        public static Column operator ++(Column c)
-        {
-            c.Set(c.Get() + 1);
-            return c;
-        }
-
-        public static Column operator+(Column c1, Column c2)
-        {
-            Column c = new Column();
-            c.Set(c1.Get() + c2.Get());
-            c.isValid = c1.isValid && c2.isValid;
-            return c;
-        }
-
-        public static Column operator +(Column c1, int i1)
-        {
-            Column c = new Column();
-            c.Set(c1.Get() + i1);
-            c.isValid = c1.isValid;
-            return c;
-        }
-
-        public static Column operator -(Column c1, Column c2)
-        {
-            Column c = new Column();
-            c.Set(c1.Get() - c2.Get());
-            c.isValid = c1.isValid && c2.isValid;
-            return c;
-        }
-
-        public static Column operator -(Column c1, int i1)
-        {
-            Column c = new Column();
-            c.Set(c1.Get() - i1);
-            c.isValid = c1.isValid;
-            return c;
-        }
-    }
-
     public class Position : IComparable
     {
         public bool inDocument { get; set; } = true;
@@ -115,7 +29,7 @@ namespace Deleter
             this.column = column;
         }
 
-        
+
 
         public Position()
         {
@@ -133,7 +47,7 @@ namespace Deleter
 
         public bool IsValid()
         {
-            return line < 0 || column < 0; 
+            return line < 0 || column < 0;
         }
 
         public override string ToString()
@@ -170,8 +84,19 @@ namespace Deleter
 
         public static bool operator <(Position p1, Position p2)
         {
-            if(p1.line == p2.line)
+            if (p1.line == p2.line)
             {
+                return p1.column < p2.column;
+            }
+
+            return p1.line < p2.line;
+        }
+
+        public static bool operator <=(Position p1, Position p2)
+        {
+            if (p1.line == p2.line)
+            {
+                if (p1.column == p2.column) return true;
                 return p1.column < p2.column;
             }
 
@@ -182,6 +107,17 @@ namespace Deleter
         {
             if (p1.line == p2.line)
             {
+                return p1.column > p2.column;
+            }
+
+            return p1.line > p2.line;
+        }
+
+        public static bool operator >=(Position p1, Position p2)
+        {
+            if (p1.line == p2.line)
+            {
+                if (p1.column == p2.column) return true;
                 return p1.column > p2.column;
             }
 

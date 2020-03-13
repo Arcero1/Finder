@@ -1,84 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Security.Permissions;
-using System.Runtime.Serialization;
-using System.IO;
 
-namespace Deleter
+using NCommon;
+
+namespace NFinder
 {
-    public class NotFoundException : Exception
-    {
-        public NotFoundException()
-        {
-        }
-
-        public NotFoundException(string message)
-        : base(message)
-    {
-        }
-
-        public NotFoundException(string message, Exception inner)
-        : base(message, inner)
-    {
-        }
-    }
-
-    public class ScopeBlock
-    {
-        public enum Scope
-        {
-            Global,
-            Class,
-            Other
-        }
-
-        public override bool Equals(object obj)
-        {
-            var toCompareWith = obj as ScopeBlock;
-            if (toCompareWith == null)
-            {
-                return false;
-            }
-
-            return this.scope == toCompareWith.scope
-                && this.start == toCompareWith.start
-                && this.end == toCompareWith.end;
-        }
-
-        public Position start = new Position();
-        public Position end = new Position();
-        public Scope scope;
-
-        public override string ToString()
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-
-            switch (scope)
-            {
-                case (Scope.Global):
-                    stringBuilder.Append("Global");
-                    break;
-                case (Scope.Class):
-                    stringBuilder.Append("Class");
-                    break;
-                default:
-                    stringBuilder.Append("Undetermined (usually local)");
-                    break;
-            }
-            stringBuilder.AppendLine(" Scope");
-            if(scope != Scope.Global)
-            {
-                stringBuilder.Append("[start] ").AppendLine(start.ToString());
-                stringBuilder.Append("[end] ").AppendLine(end.ToString());
-            }
-
-            return stringBuilder.ToString();
-        }
-    }
-
     public class ScopeFinder : Finder
     {
         private readonly List<FinderOutputElement> bracePositions;
@@ -88,7 +14,7 @@ namespace Deleter
         {
             bracePositions = FindAllIgnoringComments(FindableStrings.Get(Findable.Brace_Open));
             bracePositions.AddRange(FindAllIgnoringComments(FindableStrings.Get(Findable.Brace_Close)));
-            bracePositions.Sort((el1, el2) => 
+            bracePositions.Sort((el1, el2) =>
             {
                 return el1.Position.CompareTo(el2.Position);
             });
@@ -98,7 +24,7 @@ namespace Deleter
         {
             ScopeBlock scope = new ScopeBlock();
             scope.start = FindStartOfScope(toScope);
-            if(!scope.start.inDocument)
+            if (!scope.start.inDocument)
             {
                 scope.scope = ScopeBlock.Scope.Global;
             }
@@ -169,7 +95,7 @@ namespace Deleter
 
                 braces.Remove(endOfScope);
                 braces.Remove(c);
-                
+
                 endOfScope = braces.First(item => item.Item == FindableStrings.Get(Findable.Brace_Close));
             }
 

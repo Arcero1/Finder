@@ -57,9 +57,17 @@
     <Content Include="ScopeFinderTestFile.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonClasses\CommonClasses.csproj">
+      <Project>{1c410a05-8ea9-4dd6-b726-0d6c236ac7c5}</Project>
+      <Name>CommonClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Deleter\Deleter.csproj">
       <Project>{48f20147-226b-4115-aadd-00c326dfaeaf}</Project>
       <Name>Deleter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Finder\Finder.csproj">
+      <Project>{630247ee-e3de-4d58-b024-8d36fad44506}</Project>
+      <Name>Finder</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
