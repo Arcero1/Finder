@@ -2,41 +2,56 @@
 {
     public class Column
     {
-        private int column;
-        private bool isValid;
+        private int _column;
+        private bool _isValid;
 
-        public Column()
+        public Column(int column = 0, bool isValid = true)
         {
-            this.column = 0;
-            this.isValid = true;
-        }
-
-        public Column(int column)
-        {
-            this.column = column;
-            this.isValid = true;
-        }
-
-        public Column(bool isValid)
-        {
-            this.column = 0;
-            this.isValid = isValid;
+            this._column = column;
+            this._isValid = isValid;
         }
 
         public int Get()
         {
-            return column;
+            return _column;
         }
 
         public void Set(int column)
         {
-            this.column = column;
+            this._column = column;
         }
 
         public bool IsValid()
         {
-            return isValid ? column >= 0 : isValid;
+            return _isValid ? _column >= 0 : _isValid;
         }
+
+        public override bool Equals(object obj)
+        {
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                Column c = (Column)obj;
+                return c == this;
+            }
+        }
+
+        public static bool operator ==(Column c1, Column c2)
+        {
+            if (c1._isValid == c2._isValid)
+            {
+                if (!c1._isValid) return true;
+
+                return c1._column == c2._column;
+            }
+
+            return false;
+        }
+
+        public static bool operator !=(Column c1, Column c2) => !(c1 == c2);
 
         public Column Next()
         {
@@ -53,7 +68,7 @@
         {
             Column c = new Column();
             c.Set(c1.Get() + c2.Get());
-            c.isValid = c1.isValid && c2.isValid;
+            c._isValid = c1._isValid && c2._isValid;
             return c;
         }
 
@@ -61,7 +76,7 @@
         {
             Column c = new Column();
             c.Set(c1.Get() + i1);
-            c.isValid = c1.isValid;
+            c._isValid = c1._isValid;
             return c;
         }
 
@@ -69,7 +84,7 @@
         {
             Column c = new Column();
             c.Set(c1.Get() - c2.Get());
-            c.isValid = c1.isValid && c2.isValid;
+            c._isValid = c1._isValid && c2._isValid;
             return c;
         }
 
@@ -77,8 +92,11 @@
         {
             Column c = new Column();
             c.Set(c1.Get() - i1);
-            c.isValid = c1.isValid;
+            c._isValid = c1._isValid;
             return c;
         }
+
+        public static implicit operator Column(int column) => new Column(column);
+        public static implicit operator int(Column column) => column._column;
     }
 }

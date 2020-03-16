@@ -2,11 +2,29 @@
 
 namespace NCommon
 {
-    public class Position : IComparable
+    public partial class Position
     {
-        public bool inDocument { get; set; } = true;
-        public int line { get; set; } = 0;
-        public int column { get; set; } = 0;
+        private bool    _inDocument = true;
+        public bool     InDocument  { get { return _inDocument && Line >= 0 && Column >= 0; } set { _inDocument = value; } }
+
+        public int      Line        { get; set; }
+        public Column   Column      { get; set; }
+
+        public Position(int line = 0, int column = 0)
+        {
+            this.Line = line;
+            this.Column = column;
+        }
+
+        public static int ToVisible     (int i) => i + 1;
+        public static int ToCalculable  (int i) => i - 1;
+
+        public override string ToString() => "L:" + ToVisible(Line) + ", C:" + ToVisible(Column);
+        
+    };
+
+    public partial class Position : IComparable
+    {
 
         public int CompareTo(object obj)
         {
@@ -14,8 +32,8 @@ namespace NCommon
             Position position = obj as Position;
             if (position != null)
             {
-                int total = this.line - position.line;
-                return total == 0 ? this.column - position.column : total;
+                int total = this.Line - position.Line;
+                return total == 0 ? (int)this.Column - (int)position.Column : total;
             }
             else
             {
@@ -23,105 +41,44 @@ namespace NCommon
             }
         }
 
-        public Position(int line, int column)
-        {
-            this.line = line;
-            this.column = column;
-        }
+        public override bool Equals(object obj) => !((obj == null) || !this.GetType().Equals(obj.GetType())) && this == (Position)obj;
 
-
-
-        public Position()
-        {
-            this.line = 0;
-            this.column = 0;
-            this.inDocument = true;
-        }
-
-        public Position NextColumn()
-        {
-            Position p = this;
-            p.column++;
-            return p;
-        }
-
-        public bool IsValid()
-        {
-            return line < 0 || column < 0;
-        }
-
-        public override string ToString()
-        {
-            return "L:" + (line + 1) + ", C:" + (column + 1);
-        }
+        public override int GetHashCode() => !InDocument ? -1 : (Line << 12) ^ Column;
 
         public static bool operator ==(Position p1, Position p2)
         {
-            if (ReferenceEquals(p1, null))
+            if (ReferenceEquals(p1, null) || ReferenceEquals(p2, null))
             {
-                return false;
-            }
-            if (ReferenceEquals(p2, null))
-            {
-                return false;
+                return (ReferenceEquals(p1, null) && ReferenceEquals(p2, null));
             }
 
-            return p1.line == p2.line && p1.column == p2.column;
+            if (p1.InDocument == p2.InDocument)
+            {
+                if (!p1.InDocument) return true;
+
+                return p1.Line == p2.Line && p1.Column == p2.Column;
+            }
+
+            return false;
         }
 
-        public static bool operator !=(Position p1, Position p2)
-        {
-            if (ReferenceEquals(p1, null))
-            {
-                return true;
-            }
-            if (ReferenceEquals(p2, null))
-            {
-                return true;
-            }
-            return p1.line != p2.line || p1.column != p2.column;
-        }
+        public static bool operator !=(Position p1, Position p2) => !(p1 == p2);
 
         public static bool operator <(Position p1, Position p2)
         {
-            if (p1.line == p2.line)
+            if (ReferenceEquals(p1, null) || ReferenceEquals(p2, null))
             {
-                return p1.column < p2.column;
+                return ReferenceEquals(p1, null);
             }
 
-            return p1.line < p2.line;
+            return p1.Line == p2.Line ? p1.Column < p2.Column : p1.Line < p2.Line;
         }
 
-        public static bool operator <=(Position p1, Position p2)
-        {
-            if (p1.line == p2.line)
-            {
-                if (p1.column == p2.column) return true;
-                return p1.column < p2.column;
-            }
+        public static bool operator <=(Position p1, Position p2) => p1 == p2 || p1 < p2;
 
-            return p1.line < p2.line;
-        }
+        public static bool operator >(Position p1, Position p2) => !(p1 <= p2);
 
-        public static bool operator >(Position p1, Position p2)
-        {
-            if (p1.line == p2.line)
-            {
-                return p1.column > p2.column;
-            }
+        public static bool operator >=(Position p1, Position p2) => !(p1 < p2);
+    }
 
-            return p1.line > p2.line;
-        }
-
-        public static bool operator >=(Position p1, Position p2)
-        {
-            if (p1.line == p2.line)
-            {
-                if (p1.column == p2.column) return true;
-                return p1.column > p2.column;
-            }
-
-            return p1.line > p2.line;
-        }
-    };
 }

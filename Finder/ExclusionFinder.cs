@@ -7,7 +7,7 @@ namespace NFinder
 {
     public class ExclusionFinder : Finder
     {
-        private List<FinderOutputFindable> finderOutput;
+        private List<FindableFO> finderOutput;
         private List<ExclusionBlock> excludedBlocks;
 
         public ExclusionFinder(string fileName) : base(fileName)
@@ -29,7 +29,7 @@ namespace NFinder
             excludedBlocks = new List<ExclusionBlock>();
             while (finderOutput.Count > 0)
             {
-                FinderOutputFindable element = finderOutput.First();
+                FindableFO element = finderOutput.First();
                 finderOutput.Remove(element);
 
                 switch (element.Item)

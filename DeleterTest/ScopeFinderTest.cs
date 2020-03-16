@@ -29,10 +29,10 @@ namespace DeleterTest
         public void TestFindsSingleLineScope()
         {
             ScopeBlock expectedScope = new ScopeBlock();
-            expectedScope.end.line      = ToCalculable(3);
-            expectedScope.start.line    = ToCalculable(3);
-            expectedScope.start.column  = ToCalculable(1);
-            expectedScope.end.column    = ToCalculable(3);
+            expectedScope.end.Line      = ToCalculable(3);
+            expectedScope.start.Line    = ToCalculable(3);
+            expectedScope.start.Column  = ToCalculable(1);
+            expectedScope.end.Column    = ToCalculable(3);
 
             expectedScope.scope = ScopeBlock.Scope.Other;
 
@@ -45,11 +45,11 @@ namespace DeleterTest
         public void TestFindsMultiLineScope()
         {
             ScopeBlock expectedScope = new ScopeBlock();
-            expectedScope.start.line = ToCalculable(5);
-            expectedScope.start.column = ToCalculable(1);
+            expectedScope.start.Line = ToCalculable(5);
+            expectedScope.start.Column = ToCalculable(1);
 
-            expectedScope.end.line = ToCalculable(7);
-            expectedScope.end.column = ToCalculable(1);
+            expectedScope.end.Line = ToCalculable(7);
+            expectedScope.end.Column = ToCalculable(1);
 
             expectedScope.scope = ScopeBlock.Scope.Other;
 
@@ -62,11 +62,11 @@ namespace DeleterTest
         public void TestIgnoresTrailingLowerScope()
         {
             ScopeBlock expectedScope = new ScopeBlock();
-            expectedScope.start.line = ToCalculable(9);
-            expectedScope.start.column = ToCalculable(1);
+            expectedScope.start.Line = ToCalculable(9);
+            expectedScope.start.Column = ToCalculable(1);
 
-            expectedScope.end.line = ToCalculable(9);
-            expectedScope.end.column = ToCalculable(5);
+            expectedScope.end.Line = ToCalculable(9);
+            expectedScope.end.Column = ToCalculable(5);
 
             expectedScope.scope = ScopeBlock.Scope.Other;
 
@@ -79,11 +79,11 @@ namespace DeleterTest
         public void TestIgnoresMultipleTrailingLowerScope()
         {
             ScopeBlock expectedScope = new ScopeBlock();
-            expectedScope.start.line = ToCalculable(13);
-            expectedScope.start.column = ToCalculable(1);
+            expectedScope.start.Line = ToCalculable(13);
+            expectedScope.start.Column = ToCalculable(1);
 
-            expectedScope.end.line = ToCalculable(13);
-            expectedScope.end.column = ToCalculable(9);
+            expectedScope.end.Line = ToCalculable(13);
+            expectedScope.end.Column = ToCalculable(9);
 
             expectedScope.scope = ScopeBlock.Scope.Other;
 
@@ -96,11 +96,11 @@ namespace DeleterTest
         public void TestIgnoresLeadingLowerScope()
         {
             ScopeBlock expectedScope = new ScopeBlock();
-            expectedScope.start.line = ToCalculable(11);
-            expectedScope.start.column = ToCalculable(1);
+            expectedScope.start.Line = ToCalculable(11);
+            expectedScope.start.Column = ToCalculable(1);
 
-            expectedScope.end.line = ToCalculable(11);
-            expectedScope.end.column = ToCalculable(5);
+            expectedScope.end.Line = ToCalculable(11);
+            expectedScope.end.Column = ToCalculable(5);
 
             expectedScope.scope = ScopeBlock.Scope.Other;
             
@@ -123,11 +123,11 @@ namespace DeleterTest
         public void TestFreeform1()
         {
             ScopeBlock expectedScope = new ScopeBlock();
-            expectedScope.start.line = ToCalculable(22);
-            expectedScope.start.column = ToCalculable(18);
+            expectedScope.start.Line = ToCalculable(22);
+            expectedScope.start.Column = ToCalculable(18);
 
-            expectedScope.end.line = ToCalculable(22);
-            expectedScope.end.column = ToCalculable(31);
+            expectedScope.end.Line = ToCalculable(22);
+            expectedScope.end.Column = ToCalculable(31);
 
             expectedScope.scope = ScopeBlock.Scope.Other;
 
@@ -141,11 +141,11 @@ namespace DeleterTest
         public void TestFreeform2()
         {
             ScopeBlock expectedScope = new ScopeBlock();
-            expectedScope.start.line = ToCalculable(21);
-            expectedScope.start.column = ToCalculable(1);
+            expectedScope.start.Line = ToCalculable(21);
+            expectedScope.start.Column = ToCalculable(1);
 
-            expectedScope.end.line = ToCalculable(29);
-            expectedScope.end.column = ToCalculable(1);
+            expectedScope.end.Line = ToCalculable(29);
+            expectedScope.end.Column = ToCalculable(1);
 
             expectedScope.scope = ScopeBlock.Scope.Other;
 
@@ -168,11 +168,11 @@ namespace DeleterTest
         public void TestIgnoresLineComments()
         {
             ScopeBlock expectedScope = new ScopeBlock();
-            expectedScope.start.line = ToCalculable(31);
-            expectedScope.start.column = ToCalculable(1);
+            expectedScope.start.Line = ToCalculable(31);
+            expectedScope.start.Column = ToCalculable(1);
 
-            expectedScope.end.line = ToCalculable(32);
-            expectedScope.end.column = ToCalculable(1);
+            expectedScope.end.Line = ToCalculable(32);
+            expectedScope.end.Column = ToCalculable(1);
 
             expectedScope.scope = ScopeBlock.Scope.Other;
 
@@ -186,11 +186,11 @@ namespace DeleterTest
         public void TestNotIgnoresLineCommentsInStrings()
         {
             ScopeBlock expectedScope = new ScopeBlock();
-            expectedScope.start.line = ToCalculable(31);
-            expectedScope.start.column = ToCalculable(1);
+            expectedScope.start.Line = ToCalculable(31);
+            expectedScope.start.Column = ToCalculable(1);
 
-            expectedScope.end.line = ToCalculable(32);
-            expectedScope.end.column = ToCalculable(1);
+            expectedScope.end.Line = ToCalculable(32);
+            expectedScope.end.Column = ToCalculable(1);
 
             expectedScope.scope = ScopeBlock.Scope.Other;
 
@@ -208,31 +208,6 @@ namespace DeleterTest
         int ToCalculable(int i)
         {
             return i - 1;
-        }
-    }
-
-    [TestClass]
-    public class FinderTest
-    {
-        Finder scopeFinder = new Finder("../../ScopeFinderTestFile.txt");
-        enum Brace
-        {
-            Opening = '{',
-            Closing = '}'
-        }
-
-        [TestMethod]
-        public void TestFinds()
-        {
-        Console.WriteLine((char)Brace.Opening);
-        }
-
-        [TestMethod]
-        public void TestFindsX()
-        {
-            Position p;
-            p = scopeFinder.Find("A");
-            Console.WriteLine(p);
         }
     }
 }

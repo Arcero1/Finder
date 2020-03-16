@@ -11,8 +11,6 @@
             end = null;
         }
 
-
-
         public enum Type
         {
             PartLine,
