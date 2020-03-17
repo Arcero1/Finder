@@ -1,4 +1,3 @@
-C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\obj\Debug\Finder.csprojResolveAssemblyReference.cache
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\bin\Debug\Finder.dll.config
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\bin\Debug\Finder.dll
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\bin\Debug\Finder.pdb
@@ -6,3 +5,5 @@ C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\bin\Debug\Common
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\bin\Debug\CommonClasses.pdb
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\obj\Debug\Finder.dll
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\obj\Debug\Finder.pdb
+C:\Users\bartlomiej.marcysiak\OneDrive\Documents\Deleter\Finder\obj\Debug\Finder.csprojAssemblyReference.cache
+C:\Users\bartlomiej.marcysiak\OneDrive\Documents\Deleter\Finder\obj\Debug\Finder.csproj.CopyComplete

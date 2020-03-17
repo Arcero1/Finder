@@ -19,7 +19,6 @@ namespace DeleterTest
         [TestMethod]
         public void TestFindsGlobalScope()
         {
-            Position p;
             ScopeBlock scope = scopeFinder.FindScope(finder.Find("A"));
             Console.WriteLine(scope);
             Assert.AreEqual(ScopeBlock.Scope.Global, scope.scope, "Scope should be GLOBAL");
@@ -37,7 +36,6 @@ namespace DeleterTest
             expectedScope.scope = ScopeBlock.Scope.Other;
 
             ScopeBlock scope = scopeFinder.FindScope(finder.Find("B"));
-            Console.WriteLine(scope);
             Assert.AreEqual(expectedScope, scope);
         }
 
@@ -113,7 +111,6 @@ namespace DeleterTest
         [TestMethod]
         public void TestFindMidFileGlobalScope()
         {
-            Position p;
             ScopeBlock scope = scopeFinder.FindScope(finder.Find("G"));
             Console.WriteLine(scope);
             Assert.AreEqual(ScopeBlock.Scope.Global, scope.scope, "Scope should be GLOBAL");
@@ -158,7 +155,6 @@ namespace DeleterTest
         [TestMethod]
         public void TestFreeform3()
         {
-            Position p;
             ScopeBlock scope = scopeFinder.FindScope(finder.Find("#include <string>"));
             Console.WriteLine(scope);
             Assert.AreEqual(ScopeBlock.Scope.Global, scope.scope, "Scope should be GLOBAL");

@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deleter", "Deleter\Deleter.csproj", "{48F20147-226B-4115-AADD-00C326DFAEAF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1C410A05-8EA9-4DD6-B726-0D6C236AC7C5} = {1C410A05-8EA9-4DD6-B726-0D6C236AC7C5}
+		{630247EE-E3DE-4D58-B024-8D36FAD44506} = {630247EE-E3DE-4D58-B024-8D36FAD44506}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTest", "DeleterTest\XTest.csproj", "{E07C41EC-2970-4069-A8E3-C4441703BC56}"
 EndProject
@@ -36,5 +40,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6DE4316-24DB-4ECC-BBF7-71644F4D5CF2}
 	EndGlobalSection
 EndGlobal

@@ -18,6 +18,8 @@ namespace NFinder
         LineBreak,
 
         Unmatched
+
+
     }
 
     static class FindableMethods
@@ -64,7 +66,7 @@ namespace NFinder
             }
         }
 
-        public static string ToString(this Findable findable)
+        public static string ToString(Findable findable)
         {
             try
             {
@@ -73,6 +75,26 @@ namespace NFinder
             {
                 throw new NotFindableException();
             }
+        }
+
+        private static Findable ToFindable(this string findableString)
+        {
+            if (strings.ContainsValue(findableString))
+            {
+                foreach (var keyValuePair in strings)
+                {
+                    if (keyValuePair.Value == findableString) return keyValuePair.Key;
+                }
+            }
+
+            throw new System.Exception();
+        }
+
+        public static List<FindableFO> Transform(this List<FinderOutput> finderOutput)
+        {
+            List<FindableFO> findableFOs = new List<FindableFO>();
+            finderOutput.ForEach(el => findableFOs.Add(new FindableFO(el.Item.ToFindable(), el.Position)));
+            return findableFOs;
         }
     }
 }

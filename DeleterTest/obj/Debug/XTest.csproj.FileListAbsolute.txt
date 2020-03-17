@@ -1,4 +1,3 @@
-C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\obj\Debug\XTest.csprojResolveAssemblyReference.cache
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\obj\Debug\DeleterTest.dll
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\obj\Debug\DeleterTest.pdb
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\DeleterTest.dll
@@ -9,3 +8,7 @@ C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\F
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\CommonClasses.pdb
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\Deleter.pdb
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\DeleterTest\bin\Debug\Finder.pdb
+C:\Users\bartlomiej.marcysiak\OneDrive\Documents\Deleter\DeleterTest\bin\Debug\Deleter.exe.config
+C:\Users\bartlomiej.marcysiak\OneDrive\Documents\Deleter\DeleterTest\bin\Debug\Finder.dll.config
+C:\Users\bartlomiej.marcysiak\OneDrive\Documents\Deleter\DeleterTest\obj\Debug\XTest.csprojAssemblyReference.cache
+C:\Users\bartlomiej.marcysiak\OneDrive\Documents\Deleter\DeleterTest\obj\Debug\XTest.csproj.CopyComplete

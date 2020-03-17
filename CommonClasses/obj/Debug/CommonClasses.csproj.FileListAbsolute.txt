@@ -1,5 +1,5 @@
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\CommonClasses\bin\Debug\CommonClasses.dll
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\CommonClasses\bin\Debug\CommonClasses.pdb
-C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\CommonClasses\obj\Debug\CommonClasses.csprojResolveAssemblyReference.cache
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\CommonClasses\obj\Debug\CommonClasses.dll
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\CommonClasses\obj\Debug\CommonClasses.pdb
+C:\Users\bartlomiej.marcysiak\OneDrive\Documents\Deleter\CommonClasses\obj\Debug\CommonClasses.csprojAssemblyReference.cache

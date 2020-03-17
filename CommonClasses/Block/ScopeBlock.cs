@@ -44,7 +44,7 @@ namespace NCommon
             if (scope != Scope.Global)
             {
                 stringBuilder.Append("[start] ").AppendLine(start.ToString());
-                stringBuilder.Append("[end] ").AppendLine(end.ToString());
+                stringBuilder.Append("[end]   ").AppendLine(end.ToString());
             }
 
             return stringBuilder.ToString();

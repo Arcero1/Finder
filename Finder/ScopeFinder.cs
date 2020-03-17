@@ -12,8 +12,8 @@ namespace NFinder
         // takes a file, builds a dictionary of all braces contained in the file
         public ScopeFinder(string fileName) : base(fileName)
         {
-            bracePositions = FindAllIgnoringComments(Findable.Brace_Open);
-            bracePositions.AddRange(FindAllIgnoringComments(Findable.Brace_Close));
+            bracePositions = FindAll(Findable.Brace_Open);
+            bracePositions.AddRange(FindAll(Findable.Brace_Close));
             bracePositions.Sort();
         }
 
