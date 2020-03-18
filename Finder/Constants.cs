@@ -7,10 +7,12 @@ namespace NFinder
         Brace_Open,
         Brace_Close,
         String,
+        Char,
         LineComment,
         MultiLineComment_Open,
         MultiLineComment_Close,
-        LineBreak
+        EscapeCharacter,
+        NonFindable
     }
 
     static class FindableStrings
@@ -20,10 +22,11 @@ namespace NFinder
             { Findable.Brace_Open,              "{" },
             { Findable.Brace_Close,             "}" },
             { Findable.String,                  "\"" },
+            { Findable.Char,                    "'"},
             { Findable.LineComment,             "//" },
             { Findable.MultiLineComment_Open,   "/*" },
             { Findable.MultiLineComment_Close,  "*/"},
-            { Findable.LineBreak,               "\\" }
+            { Findable.EscapeCharacter,         "\\" }
         };
 
         public static string Get(Findable findable)

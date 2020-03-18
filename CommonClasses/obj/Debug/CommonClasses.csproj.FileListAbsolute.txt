@@ -3,3 +3,8 @@ C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\CommonClasses\bin\Debug
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\CommonClasses\obj\Debug\CommonClasses.csprojResolveAssemblyReference.cache
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\CommonClasses\obj\Debug\CommonClasses.dll
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\CommonClasses\obj\Debug\CommonClasses.pdb
+C:\Users\Arcero\Source\Repos\Deleter\CommonClasses\bin\Debug\CommonClasses.dll
+C:\Users\Arcero\Source\Repos\Deleter\CommonClasses\bin\Debug\CommonClasses.pdb
+C:\Users\Arcero\Source\Repos\Deleter\CommonClasses\obj\Debug\CommonClasses.csproj.CoreCompileInputs.cache
+C:\Users\Arcero\Source\Repos\Deleter\CommonClasses\obj\Debug\CommonClasses.dll
+C:\Users\Arcero\Source\Repos\Deleter\CommonClasses\obj\Debug\CommonClasses.pdb

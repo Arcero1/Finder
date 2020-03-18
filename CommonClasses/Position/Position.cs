@@ -38,10 +38,17 @@ namespace NCommon
             this.inDocument = true;
         }
 
-        public Position NextColumn()
+        public Position Next()
         {
             Position p = this;
             p.column++;
+            return p;
+        }
+
+        public Position Previous()
+        {
+            Position p = this;
+            p.column--;
             return p;
         }
 

@@ -4,3 +4,10 @@ c:\users\bartlomiej.marcysiak\onedrive\documents\Deleter\Deleter\bin\Debug\Delet
 c:\users\bartlomiej.marcysiak\onedrive\documents\Deleter\Deleter\obj\Debug\Deleter.csprojResolveAssemblyReference.cache
 c:\users\bartlomiej.marcysiak\onedrive\documents\Deleter\Deleter\obj\Debug\Deleter.exe
 c:\users\bartlomiej.marcysiak\onedrive\documents\Deleter\Deleter\obj\Debug\Deleter.pdb
+C:\Users\Arcero\Source\Repos\Deleter\Deleter\bin\Debug\Deleter.exe.config
+C:\Users\Arcero\Source\Repos\Deleter\Deleter\bin\Debug\Deleter.exe
+C:\Users\Arcero\Source\Repos\Deleter\Deleter\bin\Debug\Deleter.pdb
+C:\Users\Arcero\Source\Repos\Deleter\Deleter\obj\Debug\Deleter.csprojAssemblyReference.cache
+C:\Users\Arcero\Source\Repos\Deleter\Deleter\obj\Debug\Deleter.csproj.CoreCompileInputs.cache
+C:\Users\Arcero\Source\Repos\Deleter\Deleter\obj\Debug\Deleter.exe
+C:\Users\Arcero\Source\Repos\Deleter\Deleter\obj\Debug\Deleter.pdb

@@ -1,0 +1,7 @@
+﻿// line comment;
+
+"//" not a line comment
+
+/*
+multi-line comment
+*/

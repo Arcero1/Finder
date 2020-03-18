@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ExclusionFinderTestFile.txt" />
     <Content Include="ScopeFinderTestFile.txt" />
   </ItemGroup>
   <ItemGroup>
