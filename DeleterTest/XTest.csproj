@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FinderTestFile.txt" />
+    <Content Include="ExclusionFinderTestFile.txt" />
     <Content Include="ScopeFinderTestFile.txt" />
   </ItemGroup>
   <ItemGroup>

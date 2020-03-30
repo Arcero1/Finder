@@ -12,13 +12,14 @@ namespace NFinder
 
         public ExclusionFinder(string fileName) : base(fileName)
         {
-            finderOutput = FindAll(Findable.LineBreak);
-            finderOutput.AddRange(FindAll(Findable.LineComment));
-            finderOutput.AddRange(FindAll(Findable.MultiLineComment_Close));
-            finderOutput.AddRange(FindAll(Findable.MultiLineComment_Open));
-            finderOutput.AddRange(FindAll(Findable.String));
+            _finderOutput = FindAll(Findable.EscapeCharacter);
+            _finderOutput.AddRange(FindAll(Findable.LineComment));
+            _finderOutput.AddRange(FindAll(Findable.MultiLineComment_Close));
+            _finderOutput.AddRange(FindAll(Findable.MultiLineComment_Open));
+            _finderOutput.AddRange(FindAll(Findable.String));
+            _finderOutput.AddRange(FindAll(Findable.Char));
 
-            finderOutput.Sort((el1, el2) =>
+            _finderOutput.Sort((el1, el2) =>
             {
                 return el1.Position.CompareTo(el2.Position);
             });
@@ -26,21 +27,42 @@ namespace NFinder
 
         public List<ExclusionBlock> FindExcludedCode()
         {
-            excludedBlocks = new List<ExclusionBlock>();
-            while (finderOutput.Count > 0)
+            _excludedBlocks = new List<ExclusionBlock>();
+            while (_finderOutput.Count > 0)
             {
                 FindableFO element = finderOutput.First();
                 finderOutput.Remove(element);
 
+                FinderOutputFindable endElement;
+                ExclusionBlock exclusionScope = new ExclusionBlock();
                 switch (element.Item)
                 {
                     case (Findable.LineComment):
-                        ExclusionBlock exclusionScope = new ExclusionBlock();
+                        exclusionScope.SetAsLineType(element.Position);
+                        _finderOutput.RemoveAll(el => 
+                        {
+                            return el.Position.line == element.Position.line;
+                        });
+                        break;
+                    case (Findable.MultiLineComment_Open):
+                    case (Findable.String):
+                    case (Findable.Char):
+                        endElement = _finderOutput.First(item =>
+                        {
+                            return item.Item == element.GetMatch();
+                        });
+                        exclusionScope.start = element.Position;
+                        exclusionScope.end = endElement.Position;
+
+                        _finderOutput.RemoveAll(el =>
+                        {
+                            return el.Position <= endElement.Position;
+                        });
                         break;
                 }
+                _excludedBlocks.Add(exclusionScope);
             }
-
-            return excludedBlocks;
+            return _excludedBlocks;
         }
     }
 }
