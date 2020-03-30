@@ -7,3 +7,13 @@ C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\obj\Debug\Finder
 C:\Users\bartlomiej.marcysiak\OneDrive\documents\Deleter\Finder\obj\Debug\Finder.pdb
 C:\Users\bartlomiej.marcysiak\OneDrive\Documents\Deleter\Finder\obj\Debug\Finder.csprojAssemblyReference.cache
 C:\Users\bartlomiej.marcysiak\OneDrive\Documents\Deleter\Finder\obj\Debug\Finder.csproj.CopyComplete
+C:\Users\Arcero\Source\Repos\Arcero1\Finder\Finder\bin\Debug\Finder.dll.config
+C:\Users\Arcero\Source\Repos\Arcero1\Finder\Finder\bin\Debug\Finder.dll
+C:\Users\Arcero\Source\Repos\Arcero1\Finder\Finder\bin\Debug\Finder.pdb
+C:\Users\Arcero\Source\Repos\Arcero1\Finder\Finder\bin\Debug\CommonClasses.dll
+C:\Users\Arcero\Source\Repos\Arcero1\Finder\Finder\bin\Debug\CommonClasses.pdb
+C:\Users\Arcero\Source\Repos\Arcero1\Finder\Finder\obj\Debug\Finder.csprojAssemblyReference.cache
+C:\Users\Arcero\Source\Repos\Arcero1\Finder\Finder\obj\Debug\Finder.csproj.CoreCompileInputs.cache
+C:\Users\Arcero\Source\Repos\Arcero1\Finder\Finder\obj\Debug\Finder.csproj.CopyComplete
+C:\Users\Arcero\Source\Repos\Arcero1\Finder\Finder\obj\Debug\Finder.dll
+C:\Users\Arcero\Source\Repos\Arcero1\Finder\Finder\obj\Debug\Finder.pdb
