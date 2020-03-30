@@ -7,19 +7,12 @@ namespace NFinder
     {
         Brace_Open,
         Brace_Close,
-
+        String,
         LineComment,
         
         MultiLineComment_Open,
         MultiLineComment_Close,
-
-        Char,
-        String,
-        LineBreak,
-
-        Unmatched
-
-
+        LineBreak
     }
 
     static class FindableMethods
@@ -28,30 +21,12 @@ namespace NFinder
         {
             { Findable.Brace_Open,              "{" },
             { Findable.Brace_Close,             "}" },
-            
+            { Findable.String,                  "\"" },
             { Findable.LineComment,             "//" },
 
             { Findable.MultiLineComment_Open,   "/*" },
             { Findable.MultiLineComment_Close,  "*/"},
-
-            { Findable.Char,                    "\'" },
-            { Findable.String,                  "\"" },
-            { Findable.LineBreak,               "\\" },
-        };
-
-        private static readonly Dictionary<Findable, Findable> matches = new Dictionary<Findable, Findable>()
-        {
-            { Findable.Brace_Open,              Findable.Brace_Close },
-            { Findable.Brace_Close,             Findable.Brace_Open },
-
-            { Findable.LineComment,             Findable.Unmatched },
-            
-            { Findable.MultiLineComment_Open,   Findable.MultiLineComment_Close },
-            { Findable.MultiLineComment_Close,  Findable.MultiLineComment_Open},
-
-            { Findable.Char,                    Findable.Char },
-            { Findable.String,                  Findable.String },
-            { Findable.LineBreak,               Findable.Unmatched }
+            { Findable.LineBreak,               "\\" }
         };
 
         public static Findable GetMatch(this Findable findable)

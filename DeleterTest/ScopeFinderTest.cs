@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 using NFinder;
 using NCommon;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -7,14 +9,15 @@ namespace DeleterTest
 {
     static class TestFile
     {
-        public static readonly string filePath = "../../ScopeFinderTestFile.txt";
+        public static readonly string scopeFinder = "../../ScopeFinderTestFile.txt";
+        public static readonly string exclusionFinder = "../../ExclusionFinderTestFile.txt";
     }
 
     [TestClass]
     public class ScopeFinderTest
     {
-        Finder finder = new Finder(TestFile.filePath);
-        ScopeFinder scopeFinder = new ScopeFinder(TestFile.filePath);
+        Finder finder = new Finder(TestFile.scopeFinder);
+        ScopeFinder scopeFinder = new ScopeFinder(TestFile.scopeFinder);
 
         [TestMethod]
         public void TestFindsGlobalScope()
@@ -159,34 +162,29 @@ namespace DeleterTest
             Console.WriteLine(scope);
             Assert.AreEqual(ScopeBlock.Scope.Global, scope.scope, "Scope should be GLOBAL");
         }
+        int ToVisible(int i)
+        {
+            return i + 1;
+        }
+
+        int ToCalculable(int i)
+        {
+            ScopeBlock expectedScope = new ScopeBlock();
+            expectedScope.start.line = ToCalculable(31);
+            expectedScope.start.column = ToCalculable(1);
+
+            expectedScope.end.line = ToCalculable(32);
+            expectedScope.end.column = ToCalculable(1);
 
         [TestMethod]
         public void TestIgnoresLineComments()
         {
             ScopeBlock expectedScope = new ScopeBlock();
-            expectedScope.start.Line = ToCalculable(31);
-            expectedScope.start.Column = ToCalculable(1);
+            expectedScope.start.line = ToCalculable(31);
+            expectedScope.start.column = ToCalculable(1);
 
-            expectedScope.end.Line = ToCalculable(32);
-            expectedScope.end.Column = ToCalculable(1);
-
-            expectedScope.scope = ScopeBlock.Scope.Other;
-
-
-            ScopeBlock scope = scopeFinder.FindScope(finder.Find("H"));
-            Console.WriteLine(scope);
-            Assert.AreEqual(expectedScope, scope);
-        }
-
-        [TestMethod]
-        public void TestNotIgnoresLineCommentsInStrings()
-        {
-            ScopeBlock expectedScope = new ScopeBlock();
-            expectedScope.start.Line = ToCalculable(31);
-            expectedScope.start.Column = ToCalculable(1);
-
-            expectedScope.end.Line = ToCalculable(32);
-            expectedScope.end.Column = ToCalculable(1);
+            expectedScope.end.line = ToCalculable(32);
+            expectedScope.end.column = ToCalculable(1);
 
             expectedScope.scope = ScopeBlock.Scope.Other;
 
@@ -195,7 +193,6 @@ namespace DeleterTest
             Console.WriteLine(scope);
             Assert.AreEqual(expectedScope, scope);
         }
-
         int ToVisible(int i)
         {
             return i + 1;
@@ -204,6 +201,31 @@ namespace DeleterTest
         int ToCalculable(int i)
         {
             return i - 1;
+        }
+    }
+
+    [TestClass]
+    public class FinderTest
+    {
+        Finder scopeFinder = new Finder("../../ScopeFinderTestFile.txt");
+        enum Brace
+        {
+            Opening = '{',
+            Closing = '}'
+        }
+
+        [TestMethod]
+        public void TestFinds()
+        {
+        Console.WriteLine((char)Brace.Opening);
+        }
+
+        [TestMethod]
+        public void TestFindsX()
+        {
+            Position p;
+            p = scopeFinder.Find("A");
+            Console.WriteLine(p);
         }
     }
 }
